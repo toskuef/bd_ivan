@@ -56,15 +56,10 @@ def wake_up(update, context):
     context.bot.send_photo(chat.id, get_new_image())
 
 
-def main():
-    updater = Updater(token=secret_token)
+updater = Updater(token=secret_token)
 
-    updater.dispatcher.add_handler(CommandHandler('start', wake_up))
-    updater.dispatcher.add_handler(CommandHandler('newcat', new_cat))
+updater.dispatcher.add_handler(CommandHandler('start', wake_up))
+updater.dispatcher.add_handler(CommandHandler('newcat', new_cat))
 
-    updater.start_polling()
-    updater.idle()
-
-
-if __name__ == '__main__':
-    main()
+updater.start_polling()
+updater.idle()
